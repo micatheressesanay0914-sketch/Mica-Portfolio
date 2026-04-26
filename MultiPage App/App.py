@@ -122,7 +122,7 @@ Feel free to explore my portfolio and see my work.
 </div>
 """, unsafe_allow_html=True) 
 
-elif menu == "Home":
+if menu == "Home":
     import home
 
 elif menu == "About Me":
