@@ -7,6 +7,37 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ---------------- SIDEBAR NAVIGATION ----------------
+st.sidebar.title("📌 Navigation")
+
+page = st.sidebar.radio(
+    "Go to:",
+    ["Home", "About", "Skills", "Projects", "Contact"]
+)
+
+# ---------------- GITHUB FORK BUTTON ----------------
+st.markdown("""
+<a href="https://github.com/your-repo-link" target="_blank">
+<button style="
+position: fixed;
+top: 15px;
+right: 15px;
+padding: 10px 15px;
+background: linear-gradient(135deg, #ff4d6d, #ffb199);
+color: white;
+border: none;
+border-radius: 12px;
+font-weight: bold;
+cursor: pointer;
+z-index: 9999;
+box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+">
+⭐ Fork on GitHub
+</button>
+</a>
+""", unsafe_allow_html=True)
+
+# ---------------- STYLE ----------------
 st.markdown("""
 <style>
 
@@ -17,6 +48,7 @@ st.markdown("""
     background: linear-gradient(-45deg, #141e30, #243b55, #1f1c2c, #2c3e50);
     background-size: 400% 400%;
     animation: bgMove 18s ease infinite;
+    font-family: 'Barlow', sans-serif;
 }
 
 @keyframes bgMove {
@@ -70,7 +102,6 @@ st.markdown("""
     font-size: 18px;
     line-height: 1.8;
     margin-top: 40px;
-    animation: fadeIn 2s ease;
 }
 
 .highlight {
@@ -88,22 +119,35 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------ HERO ------------------
-st.markdown("""
-<div class="banner-wrapper">
-    <div class="banner-headline">
-        Mica Portfolio
+# ---------------- PAGES ----------------
+if page == "Home":
+
+    st.markdown("""
+    <div class="banner-wrapper">
+        <div class="banner-headline">
+            Mica Portfolio
+        </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# ------------------ INTRO ------------------
-st.markdown("""
-<div class='intro'>
-Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+    st.markdown("""
+    <div class='intro'>
+    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
 
-I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
+    I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
 
-Feel free to explore my portfolio and see my work.
-</div>
-""", unsafe_allow_html=True)
+    Feel free to explore my portfolio and see my work.
+    </div>
+    """, unsafe_allow_html=True)
+
+elif page == "About":
+    st.title("👤 About Me Page")
+
+elif page == "Skills":
+    st.title("🧠 Skills Page")
+
+elif page == "Projects":
+    st.title("💻 Projects Page")
+
+elif page == "Contact":
+    st.title("📞 Contact Page")
