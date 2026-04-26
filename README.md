@@ -47,4 +47,6 @@ pip install streamlit
 
 Run the application:
 streamlit run app.py
+• GitHub Repository Link
 
+• Streamlit Live App Link
