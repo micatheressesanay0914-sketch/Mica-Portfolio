@@ -1,5 +1,29 @@
 import streamlit as st
 
+    page_title="Mica Portfolio",
+    page_icon="💼",
+    layout="wide"
+# ---------- SIDEBAR ----------
+menu = st.sidebar.radio(
+    "📌 Navigation",
+    ["Home", "About Me", "Projects", "Skills", "Contact"]
+)
+
+# ---------- ROUTING ----------
+if menu == "Home":
+    import home
+
+elif menu == "About Me":
+    import about_me
+
+elif menu == "Projects":
+    import project
+
+elif menu == "Skills":
+    import skills
+
+elif menu == "Contact":
+    import contact
 st.set_page_config(
     page_title="Mica Portfolio",
     page_icon="💼",
