@@ -6,6 +6,13 @@ st.set_page_config(
     layout="wide"
 )
 
+# ---------- SIDEBAR ----------
+menu = st.sidebar.radio(
+    "📌 Navigation",
+    ["Home", "About Me", "Projects", "Skills", "Contact"]
+)
+
+# ---------- CSS ----------
 st.markdown("""
 <style>
 
@@ -77,7 +84,6 @@ st.markdown("""
     font-weight: bold;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .banner-headline {
         font-size: 45px;
@@ -87,22 +93,38 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------ HERO ------------------
-st.markdown("""
-<div class="banner-wrapper">
-    <div class="banner-headline">
-        Mica Portfolio
+# ---------- HOME ----------
+if menu == "Home":
+    st.markdown("""
+    <div class="banner-wrapper">
+        <div class="banner-headline">
+            Mica Portfolio
+        </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# ------------------ INTRO ------------------
-st.markdown("""
-<div class='intro'>
-Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+    st.markdown("""
+    <div class='intro'>
+    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
 
-I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
+    I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
 
-Feel free to explore my portfolio and see my work.
-</div>
-""", unsafe_allow_html=True)
+    Feel free to explore my portfolio and see my work.
+    </div>
+    """, unsafe_allow_html=True)
+
+# ---------- ABOUT ----------
+elif menu == "About Me":
+    import about_me
+
+# ---------- PROJECTS ----------
+elif menu == "Projects":
+    import project
+
+# ---------- SKILLS ----------
+elif menu == "Skills":
+    import skills
+
+# ---------- CONTACT ----------
+elif menu == "Contact":
+    import contact
