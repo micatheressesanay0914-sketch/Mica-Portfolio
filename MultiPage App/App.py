@@ -7,29 +7,38 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------- GITHUB FORK RIBBON (FIXED) ----------------
+# ---------------- FIXED FORK RIBBON ----------------
 st.markdown("""
 <style>
+
+/* FORCE ROOT LAYER (IMPORTANT FIX) */
+html, body, [data-testid="stAppViewContainer"] {
+    overflow: visible !important;
+}
+
+/* RIBBON */
 .fork-ribbon {
     position: fixed;
-    top: 15px;
-    right: -45px;
-    z-index: 99999;
+    top: 20px;
+    right: -60px;
+    z-index: 999999999 !important;
     transform: rotate(45deg);
     background: linear-gradient(135deg, #ff4d6d, #ffb199);
     color: white;
-    padding: 8px 60px;
+    padding: 10px 70px;
     font-size: 12px;
     font-weight: bold;
     text-decoration: none;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-    border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    border-radius: 6px;
+    pointer-events: auto;
 }
 
 .fork-ribbon:hover {
-    transform: rotate(45deg) scale(1.05);
+    transform: rotate(45deg) scale(1.08);
     transition: 0.3s ease;
 }
+
 </style>
 
 <a class="fork-ribbon"
@@ -39,7 +48,7 @@ st.markdown("""
 </a>
 """, unsafe_allow_html=True)
 
-# ---------------- SIDEBAR (FORK FIXED) ----------------
+# ---------------- SIDEBAR ----------------
 st.sidebar.title("📂 Navigation")
 
 page = st.sidebar.radio(
