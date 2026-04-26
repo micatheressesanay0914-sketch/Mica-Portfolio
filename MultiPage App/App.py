@@ -1,11 +1,19 @@
 import streamlit as st
 
+# ------------------ PAGE CONFIG ------------------
 st.set_page_config(
     page_title="Mica Portfolio",
     page_icon="💼",
     layout="wide"
 )
 
+# ------------------ SIDEBAR NAVIGATION ------------------
+page = st.sidebar.radio(
+    "📌 Navigation",
+    ["Home", "About", "Skills", "Projects", "Contact"]
+)
+
+# ------------------ STYLES ------------------
 st.markdown("""
 <style>
 
@@ -38,13 +46,11 @@ st.markdown("""
     animation: fadeIn 1.2s ease;
 }
 
-/* FADE */
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(40px);}
     to {opacity: 1; transform: translateY(0);}
 }
 
-/* FLOAT TITLE */
 @keyframes floatText {
     0% {transform: translateY(0);}
     50% {transform: translateY(-10px);}
@@ -87,22 +93,78 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------ HERO ------------------
-st.markdown("""
-<div class="banner-wrapper">
-    <div class="banner-headline">
-        Mica Portfolio
+# ------------------ HOME ------------------
+if page == "Home":
+
+    st.markdown("""
+    <div class="banner-wrapper">
+        <div class="banner-headline">
+            Mica Portfolio
+        </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# ------------------ INTRO ------------------
-st.markdown("""
-<div class='intro'>
-Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+    st.markdown("""
+    <div class='intro'>
+    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
 
-I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
+    I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
 
-Feel free to explore my portfolio and see my work.
-</div>
-""", unsafe_allow_html=True)
+    Feel free to explore my portfolio using the sidebar.
+    </div>
+    """, unsafe_allow_html=True)
+
+# ------------------ ABOUT ------------------
+elif page == "About":
+
+    st.title("About Me 💡")
+
+    st.write("""
+    I am a BS Computer Science student focused on learning and building software.
+
+    - Web Development  
+    - UI/UX Design  
+    - Python Programming  
+    - Problem Solving  
+    """)
+
+# ------------------ SKILLS ------------------
+elif page == "Skills":
+
+    st.title("Skills 🧠")
+
+    st.write("""
+    - Python 🐍  
+    - Streamlit 🌐  
+    - HTML & CSS 🎨  
+    - JavaScript ⚡  
+    - UI/UX Design 🎯  
+    - Basic Machine Learning 🤖  
+    """)
+
+# ------------------ PROJECTS ------------------
+elif page == "Projects":
+
+    st.title("Projects 🚀")
+
+    st.write("""
+    **1. Portfolio Website (Streamlit)**  
+    A modern animated personal portfolio.
+
+    **2. Student Management System**  
+    CRUD system built using Python.
+
+    **3. Simple Chatbot**  
+    Rule-based chatbot project.
+    """)
+
+# ------------------ CONTACT ------------------
+elif page == "Contact":
+
+    st.title("Contact Me 📬")
+
+    st.write("""
+    📧 Email: mica@example.com  
+    💻 GitHub: github.com/mica  
+    🔗 LinkedIn: linkedin.com/in/mica  
+    """)
