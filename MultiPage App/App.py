@@ -114,7 +114,9 @@ menu = st.sidebar.radio(
 )
 
 # ---------- ROUTER ----------
-if menu == "Home":
+if menu == "app":
+    import app
+elif menu == "Home":
     import home
 
 elif menu == "About Me":
