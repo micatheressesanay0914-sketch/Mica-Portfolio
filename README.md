@@ -48,5 +48,5 @@ pip install streamlit
 Run the application:
 streamlit run app.py
 • GitHub Repository Link
-
+https://github.com/micatheressesanay0914-sketch/Mica-Portfolio
 • Streamlit Live App Link
