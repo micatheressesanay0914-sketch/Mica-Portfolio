@@ -1,4 +1,4 @@
-here my problem no fork or a short cut to sidebar wala goods man an structure ah find it in my code import streamlit as st
+import streamlit as st
 
 st.set_page_config(
     page_title="Mica Portfolio",
