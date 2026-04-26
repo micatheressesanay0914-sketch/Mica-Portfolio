@@ -7,70 +7,125 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------- FIX: UNHIDE FORK ----------------
+# ---------------- SIDEBAR (FORCES IT TO SHOW) ----------------
+with st.sidebar:
+    st.title("📂 Navigation")
+
+    page = st.radio(
+        "Go to:",
+        ["Home", "About Me", "Skills", "Projects", "Contact"]
+    )
+
+    st.markdown("---")
+    st.write("💼 Mica Portfolio")
+    st.write("Built using Streamlit")
+
+# ---------------- STYLE ----------------
 st.markdown("""
 <style>
 
-/* 🔥 FORCE STREAMLIT LAYERS TO NOT COVER RIBBON */
-html, body, [data-testid="stAppViewContainer"] {
-    overflow: visible !important;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap');
+
+/* BACKGROUND */
+.stApp {
+    background: linear-gradient(-45deg, #141e30, #243b55, #1f1c2c, #2c3e50);
+    background-size: 400% 400%;
+    animation: bgMove 18s ease infinite;
 }
 
-/* 🔥 ROOT LAYER FIX */
-[data-testid="stAppViewContainer"] > .main {
-    overflow: visible !important;
+@keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
-/* 🔥 FORK RIBBON */
-.fork-ribbon {
-    position: fixed;
-    top: 25px;
-    right: -55px;
-    z-index: 9999999999 !important;
-    transform: rotate(45deg);
-    background: linear-gradient(135deg, #ff4d6d, #ffb199);
+/* HERO BOX */
+.banner-wrapper {
+    width: 90%;
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 60px 30px;
+    border-radius: 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+    animation: fadeIn 1.2s ease;
+}
+
+/* FADE */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* TITLE */
+.banner-headline {
+    font-size: 70px;
+    font-weight: 900;
     color: white;
-    padding: 10px 70px;
-    font-size: 12px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 6px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    font-family: 'Barlow Condensed', sans-serif;
+    animation: floatText 3s ease-in-out infinite;
 }
 
-/* hover */
-.fork-ribbon:hover {
-    transform: rotate(45deg) scale(1.08);
-    transition: 0.3s ease;
+/* FLOAT */
+@keyframes floatText {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
+}
+
+/* INTRO */
+.intro {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 40px;
+}
+
+.highlight {
+    color: #ffb199;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .banner-headline {
+        font-size: 45px;
+    }
 }
 
 </style>
-
-<a class="fork-ribbon"
-   href="https://github.com/YOUR-USERNAME/YOUR-REPO"
-   target="_blank">
-   Fork on GitHub
-</a>
 """, unsafe_allow_html=True)
 
-# ---------------- SIDEBAR (FORCED) ----------------
-with st.sidebar:
-    st.title("📂 Navigation")
-    page = st.radio("Go to:", ["Home", "About", "Skills", "Projects", "Contact"])
-
-# ---------------- MAIN ----------------
+# ---------------- PAGE CONTENT ----------------
 if page == "Home":
-    st.title("Mica Portfolio")
-    st.write("Welcome to my portfolio 🚀")
 
-elif page == "About":
-    st.title("About Me")
+    st.markdown("""
+    <div class="banner-wrapper">
+        <div class="banner-headline">
+            Mica Portfolio
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class='intro'>
+    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+    </div>
+    """, unsafe_allow_html=True)
+
+elif page == "About Me":
+    st.title("👤 About Me")
 
 elif page == "Skills":
-    st.title("Skills")
+    st.title("🧠 Skills")
 
 elif page == "Projects":
-    st.title("Projects")
+    st.title("💻 Projects")
 
 elif page == "Contact":
-    st.title("Contact")
+    st.title("📞 Contact")
