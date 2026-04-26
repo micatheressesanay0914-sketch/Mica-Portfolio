@@ -3,24 +3,9 @@ import streamlit as st
 st.set_page_config(
     page_title="Mica Portfolio",
     page_icon="💼",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
 
-# ---------------- SIDEBAR (FORCES IT TO SHOW) ----------------
-with st.sidebar:
-    st.title("📂 Navigation")
-
-    page = st.radio(
-        "Go to:",
-        ["Home", "About Me", "Skills", "Projects", "Contact"]
-    )
-
-    st.markdown("---")
-    st.write("💼 Mica Portfolio")
-    st.write("Built using Streamlit")
-
-# ---------------- STYLE ----------------
 st.markdown("""
 <style>
 
@@ -59,6 +44,13 @@ st.markdown("""
     to {opacity: 1; transform: translateY(0);}
 }
 
+/* FLOAT TITLE */
+@keyframes floatText {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
+}
+
 /* TITLE */
 .banner-headline {
     font-size: 70px;
@@ -66,13 +58,6 @@ st.markdown("""
     color: white;
     font-family: 'Barlow Condensed', sans-serif;
     animation: floatText 3s ease-in-out infinite;
-}
-
-/* FLOAT */
-@keyframes floatText {
-    0% {transform: translateY(0);}
-    50% {transform: translateY(-10px);}
-    100% {transform: translateY(0);}
 }
 
 /* INTRO */
@@ -84,6 +69,7 @@ st.markdown("""
     font-size: 18px;
     line-height: 1.8;
     margin-top: 40px;
+    animation: fadeIn 2s ease;
 }
 
 .highlight {
@@ -101,31 +87,22 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- PAGE CONTENT ----------------
-if page == "Home":
-
-    st.markdown("""
-    <div class="banner-wrapper">
-        <div class="banner-headline">
-            Mica Portfolio
-        </div>
+# ------------------ HERO ------------------
+st.markdown("""
+<div class="banner-wrapper">
+    <div class="banner-headline">
+        Mica Portfolio
     </div>
-    """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
-    st.markdown("""
-    <div class='intro'>
-    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
-    </div>
-    """, unsafe_allow_html=True)
+# ------------------ INTRO ------------------
+st.markdown("""
+<div class='intro'>
+Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
 
-elif page == "About Me":
-    st.title("👤 About Me")
+I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
 
-elif page == "Skills":
-    st.title("🧠 Skills")
-
-elif page == "Projects":
-    st.title("💻 Projects")
-
-elif page == "Contact":
-    st.title("📞 Contact")
+Feel free to explore my portfolio and see my work.
+</div>
+""", unsafe_allow_html=True)
