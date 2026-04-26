@@ -1,17 +1,26 @@
 import streamlit as st
 import base64
+import os
 
+st.set_page_config(
     page_title="About Me - Mica",
     page_icon="👤",
     layout="wide"
+)
 
-# ---------- IMAGE TO BASE64 ----------
+# ---------- IMAGE TO BASE64 (OS FIXED) ----------
 def img_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-cert1 = img_to_base64("Pages/me/cert1.jpg")
-cert2 = img_to_base64("Pages/me/cert2.jpg")
+# ✅ OS PATH FIX (LOCAL + STREAMLIT CLOUD SAFE)
+BASE_DIR = os.path.dirname(__file__)
+
+cert1_path = os.path.join(BASE_DIR, "me", "cert1.jpg")
+cert2_path = os.path.join(BASE_DIR, "me", "cert2.jpg")
+
+cert1 = img_to_base64(cert1_path)
+cert2 = img_to_base64(cert2_path)
 
 # ---------- STYLE ----------
 st.markdown("""
@@ -83,7 +92,7 @@ h3 {
     margin-top: 20px;
 }
 
-/* CERT CARD (BIG + PREMIUM) */
+/* CERT CARD */
 .cert-card {
     width: 520px;
     height: 320px;
@@ -103,7 +112,7 @@ h3 {
     transition: 0.5s ease;
 }
 
-/* HOVER (3D + GLOW + LIFT) */
+/* HOVER */
 .cert-card:hover {
     transform: translateY(-18px) scale(1.08) rotateX(4deg);
     box-shadow: 
@@ -130,7 +139,6 @@ h3 {
     font-size: 15px;
 }
 
-/* EXPANDER (CLICK VIEW FULL IMAGE) */
 details {
     text-align: center;
     color: white;
@@ -172,10 +180,10 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
+
 # ---------- CERTIFICATES ----------
 st.markdown('<div class="cert-title">🏆 Certificates</div>', unsafe_allow_html=True)
 
-# CERT 1 (TOP)
 st.markdown(f"""
 <div class="cert-grid">
     <div class="cert-card">
@@ -188,9 +196,8 @@ st.markdown(f"""
 st.markdown("<div style='height: 40px;'></div>", unsafe_allow_html=True)
 
 with st.expander("🔍 View Certificate 1"):
-    st.image("Pages/me/cert1.jpg", use_container_width=True)
+    st.image(cert1_path, use_container_width=True)
 
-# CERT 2 (BOTTOM)
 st.markdown(f"""
 <div class="cert-grid">
     <div class="cert-card">
@@ -203,4 +210,4 @@ st.markdown(f"""
 st.markdown("<div style='height: 40px;'></div>", unsafe_allow_html=True)
 
 with st.expander("🔍 View Certificate 2"):
-    st.image("Pages/me/cert2.jpg", use_container_width=True)
+    st.image(cert2_path, use_container_width=True)
