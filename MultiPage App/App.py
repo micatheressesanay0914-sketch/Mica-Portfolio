@@ -3,13 +3,40 @@ import streamlit as st
 st.set_page_config(
     page_title="Mica Portfolio",
     page_icon="💼",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
+# ---------------- FIXED FORK RIBBON ----------------
 st.markdown("""
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap');
+/* FORCE APP VISIBILITY */
+[data-testid="stAppViewContainer"] {
+    overflow: visible !important;
+}
+
+/* FORK RIBBON */
+.fork-ribbon {
+    position: fixed;
+    top: 20px;
+    right: -55px;
+    z-index: 999999;
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #ff4d6d, #ffb199);
+    color: white;
+    padding: 10px 70px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    border-radius: 6px;
+}
+
+.fork-ribbon:hover {
+    transform: rotate(45deg) scale(1.08);
+    transition: 0.3s ease;
+}
 
 /* BACKGROUND */
 .stApp {
@@ -24,7 +51,7 @@ st.markdown("""
     100% {background-position: 0% 50%;}
 }
 
-/* HERO BOX */
+/* HERO */
 .banner-wrapper {
     width: 90%;
     max-width: 900px;
@@ -35,29 +62,12 @@ st.markdown("""
     background: rgba(255,255,255,0.08);
     backdrop-filter: blur(12px);
     box-shadow: 0 25px 70px rgba(0,0,0,0.5);
-    animation: fadeIn 1.2s ease;
 }
 
-/* FADE */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(40px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-/* FLOAT TITLE */
-@keyframes floatText {
-    0% {transform: translateY(0);}
-    50% {transform: translateY(-10px);}
-    100% {transform: translateY(0);}
-}
-
-/* TITLE */
 .banner-headline {
     font-size: 70px;
     font-weight: 900;
     color: white;
-    font-family: 'Barlow Condensed', sans-serif;
-    animation: floatText 3s ease-in-out infinite;
 }
 
 /* INTRO */
@@ -69,7 +79,6 @@ st.markdown("""
     font-size: 18px;
     line-height: 1.8;
     margin-top: 40px;
-    animation: fadeIn 2s ease;
 }
 
 .highlight {
@@ -77,32 +86,49 @@ st.markdown("""
     font-weight: bold;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .banner-headline {
-        font-size: 45px;
-    }
-}
-
 </style>
+
+<a class="fork-ribbon"
+   href="https://github.com/YOUR-USERNAME/YOUR-REPO"
+   target="_blank">
+   Fork on GitHub
+</a>
 """, unsafe_allow_html=True)
 
-# ------------------ HERO ------------------
-st.markdown("""
-<div class="banner-wrapper">
-    <div class="banner-headline">
-        Mica Portfolio
+# ---------------- SIDEBAR (FORCED CONTENT) ----------------
+with st.sidebar:
+    st.title("📂 Navigation")
+    page = st.radio("Go to:", ["Home", "About", "Skills", "Projects", "Contact"])
+
+    st.markdown("---")
+    st.write("💼 Mica Portfolio")
+    st.write("Built with Streamlit")
+
+# ---------------- HOME ----------------
+if page == "Home":
+
+    st.markdown("""
+    <div class="banner-wrapper">
+        <div class="banner-headline">
+            Mica Portfolio
+        </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# ------------------ INTRO ------------------
-st.markdown("""
-<div class='intro'>
-Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+    st.markdown("""
+    <div class='intro'>
+    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications.
+    </div>
+    """, unsafe_allow_html=True)
 
-I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
+elif page == "About":
+    st.title("👤 About Me")
 
-Feel free to explore my portfolio and see my work.
-</div>
-""", unsafe_allow_html=True)
+elif page == "Skills":
+    st.title("🧠 Skills")
+
+elif page == "Projects":
+    st.title("💻 Projects")
+
+elif page == "Contact":
+    st.title("📞 Contact")
