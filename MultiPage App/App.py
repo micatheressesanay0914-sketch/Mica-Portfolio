@@ -9,10 +9,9 @@ st.set_page_config(
 # ---------- SIDEBAR ----------
 menu = st.sidebar.radio(
     "📌 Navigation",
-    ["Home", "About Me", "Projects", "Skills", "Contact"]
+    ["App", "Home", "About Me", "Projects", "Skills", "Contact"]
 )
 
-# ---------- CSS ----------
 st.markdown("""
 <style>
 
@@ -84,6 +83,7 @@ st.markdown("""
     font-weight: bold;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .banner-headline {
         font-size: 45px;
@@ -94,7 +94,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------- HOME ----------
-if menu == "Home":
+if menu == "App":
     st.markdown("""
     <div class="banner-wrapper">
         <div class="banner-headline">
@@ -102,18 +102,29 @@ if menu == "Home":
         </div>
     </div>
     """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class='intro'>
-    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
-
-    I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
-
-    Feel free to explore my portfolio and see my work.
+# ------------------ HERO ------------------
+st.markdown("""
+<div class="banner-wrapper">
+    <div class="banner-headline">
+        Mica Portfolio
     </div>
-    """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
-# ---------- ABOUT ----------
+# ------------------ INTRO ------------------
+st.markdown("""
+<div class='intro'>
+Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+
+I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
+
+Feel free to explore my portfolio and see my work.
+</div>
+""", unsafe_allow_html=True) 
+
+elif menu == "Home":
+    import home
+
 elif menu == "About Me":
     import about_me
 
