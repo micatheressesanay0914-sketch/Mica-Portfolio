@@ -36,6 +36,20 @@ st.markdown("""
     background: rgba(255,255,255,0.08);
     backdrop-filter: blur(12px);
     box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+    animation: fadeIn 1.2s ease;
+}
+
+/* FADE */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* FLOAT TITLE */
+@keyframes floatText {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
 }
 
 /* TITLE */
@@ -44,6 +58,7 @@ st.markdown("""
     font-weight: 900;
     color: white;
     font-family: 'Barlow Condensed', sans-serif;
+    animation: floatText 3s ease-in-out infinite;
 }
 
 /* INTRO */
@@ -55,6 +70,7 @@ st.markdown("""
     font-size: 18px;
     line-height: 1.8;
     margin-top: 40px;
+    animation: fadeIn 2s ease;
 }
 
 .highlight {
@@ -69,37 +85,7 @@ st.markdown("""
     }
 }
 
-/* ===== GITHUB FORK RIBBON ===== */
-.github-corner {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-.github-corner svg {
-  fill: #ff4d6d;
-  color: #fff;
-  width: 80px;
-  height: 80px;
-  transition: 0.3s ease;
-}
-
-.github-corner:hover svg {
-  transform: scale(1.1);
-  fill: #ffb199;
-}
-
 </style>
-""", unsafe_allow_html=True)
-
-# ------------------ GITHUB FORK BUTTON ------------------
-st.markdown("""
-<a href="https://github.com/" target="_blank" class="github-corner" aria-label="View source on GitHub">
-<svg viewBox="0 0 250 250">
-    <path d="M0,0 L250,250 L250,0 Z"></path>
-</svg>
-</a>
 """, unsafe_allow_html=True)
 
 # ------------------ HERO ------------------
@@ -115,5 +101,9 @@ st.markdown("""
 st.markdown("""
 <div class='intro'>
 Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+
+I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
+
+Feel free to explore my portfolio and see my work.
 </div>
 """, unsafe_allow_html=True)
