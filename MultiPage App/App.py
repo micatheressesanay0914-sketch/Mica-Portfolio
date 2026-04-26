@@ -6,6 +6,7 @@ st.set_page_config(
     layout="wide"
 )
 
+# ------------------ CSS ------------------
 st.markdown("""
 <style>
 
@@ -24,7 +25,7 @@ st.markdown("""
     100% {background-position: 0% 50%;}
 }
 
-/* HERO BOX */
+/* HERO */
 .banner-wrapper {
     width: 90%;
     max-width: 900px;
@@ -35,32 +36,15 @@ st.markdown("""
     background: rgba(255,255,255,0.08);
     backdrop-filter: blur(12px);
     box-shadow: 0 25px 70px rgba(0,0,0,0.5);
-    animation: fadeIn 1.2s ease;
 }
 
-/* FADE */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(40px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-/* FLOAT TITLE */
-@keyframes floatText {
-    0% {transform: translateY(0);}
-    50% {transform: translateY(-10px);}
-    100% {transform: translateY(0);}
-}
-
-/* TITLE */
 .banner-headline {
     font-size: 70px;
     font-weight: 900;
     color: white;
     font-family: 'Barlow Condensed', sans-serif;
-    animation: floatText 3s ease-in-out infinite;
 }
 
-/* INTRO */
 .intro {
     max-width: 750px;
     margin: auto;
@@ -69,7 +53,6 @@ st.markdown("""
     font-size: 18px;
     line-height: 1.8;
     margin-top: 40px;
-    animation: fadeIn 2s ease;
 }
 
 .highlight {
@@ -77,32 +60,66 @@ st.markdown("""
     font-weight: bold;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .banner-headline {
-        font-size: 45px;
-    }
-}
-
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------ HERO ------------------
-st.markdown("""
-<div class="banner-wrapper">
-    <div class="banner-headline">
-        Mica Portfolio
+# ------------------ SIDEBAR ------------------
+menu = st.sidebar.radio(
+    "Navigation",
+    ["Home", "About", "Projects", "Skills", "Contact"]
+)
+
+# ------------------ HOME ------------------
+if menu == "Home":
+    st.markdown("""
+    <div class="banner-wrapper">
+        <div class="banner-headline">
+            Mica Portfolio
+        </div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# ------------------ INTRO ------------------
-st.markdown("""
-<div class='intro'>
-Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
+    st.markdown("""
+    <div class='intro'>
+    Hello! I am a <span class='highlight'>BS Computer Science student</span> passionate about building modern applications and exploring new technologies.
 
-I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
+    I enjoy designing clean user interfaces and developing functional systems using Python and web technologies.
 
-Feel free to explore my portfolio and see my work.
-</div>
-""", unsafe_allow_html=True)
+    Feel free to explore my portfolio and see my work.
+    </div>
+    """, unsafe_allow_html=True)
+
+# ------------------ ABOUT ------------------
+elif menu == "About":
+    st.title("About Me")
+    st.write("""
+    I am a Computer Science student focused on software development, UI design, and web applications.
+    I enjoy learning new frameworks and improving my programming skills.
+    """)
+
+# ------------------ PROJECTS ------------------
+elif menu == "Projects":
+    st.title("Projects")
+
+    st.subheader("Portfolio Website")
+    st.write("A personal portfolio built using Streamlit.")
+
+    st.subheader("Other Project")
+    st.write("You can add more projects here.")
+
+# ------------------ SKILLS ------------------
+elif menu == "Skills":
+    st.title("Skills")
+
+    st.write("💻 Python")
+    st.write("🌐 HTML / CSS")
+    st.write("⚡ Streamlit")
+    st.write("🎨 UI Design")
+
+# ------------------ CONTACT ------------------
+elif menu == "Contact":
+    st.title("Contact Me")
+
+    st.write("📧 Email: yourname@email.com")
+    st.write("📍 Location: Philippines")
+    st.write("💼 Open for internship opportunities")
