@@ -110,12 +110,13 @@ Feel free to explore my portfolio and see my work.
 # ---------- SIDEBAR ----------
 menu = st.sidebar.radio(
     "📌 Navigation",
-    ["app", "Home", "About Me", "Projects", "Skills", "Contact"]
+    ["App", "Home", "About Me", "Projects", "Skills", "Contact"]
 )
 
 # ---------- ROUTER ----------
-if menu == "app":
+if menu == "App":
     import app
+    
 elif menu == "Home":
     import home
 
