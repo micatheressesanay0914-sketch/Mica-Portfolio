@@ -177,6 +177,8 @@ st.markdown("""
         <p>• Become a Full Stack Developer<br>• Build impactful tech solutions</p>
         <h3>🎮 Hobbies</h3>
         <p>• Watching Asian Dramas<br>• Reading Novels<br>• Sleeping 😴</p>
+        <h3>🚀 Current Work</h3>
+        <p>• Currently building projects related to data dashboards and analytics.</p>
     </div>
 </div>
 """, unsafe_allow_html=True)

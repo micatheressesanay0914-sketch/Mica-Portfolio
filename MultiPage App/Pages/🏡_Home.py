@@ -154,6 +154,7 @@ st.markdown("""
 <div class="summary">
 Hello! I am <span class="highlight">Mica</span>, a passionate BS Computer Science student focused on building modern web applications and creative UI designs.
 
+I'm a passionate learner focused on data analytics and visualization. 
 I enjoy learning Python, web development, and exploring new technologies that improve user experience and design.
 
 My goal is to become a skilled developer who creates meaningful and functional digital solutions.
