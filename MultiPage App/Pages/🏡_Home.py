@@ -7,9 +7,8 @@ def get_base64_image(image_path):
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
 
-# ---------- SAFE PATH USING OS ----------
-BASE_DIR = os.path.dirname(__file__)
-img_path = os.path.join(BASE_DIR, "me", "Image.jpg")
+# ---------- FIX ONLY: OS PATH ----------
+img_path = os.path.join("Pages", "me", "Image.jpg")
 img_base64 = get_base64_image(img_path)
 
 # ---------- TITLE ----------
@@ -46,6 +45,8 @@ box-shadow:0 15px 40px rgba(0,0,0,0.4);
         object-fit:cover;
         border:4px solid #ffb199;
         box-shadow:0 0 20px #ffb199;
+    ">
+    
     <h2 style="color:white;">Mica</h2>
     <p style="color:#ccc;">BS Computer Science Student</p>
 </div>
@@ -61,6 +62,7 @@ color:#e0e0e0;
 font-size:18px;
 line-height:1.9;
 padding:0 20px;
+">
 
 Hello! I am <b style="color:#ffb199;">Mica</b>, a passionate BS Computer Science student focused on building modern web applications and creative UI designs.
 
