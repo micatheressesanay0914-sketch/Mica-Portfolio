@@ -92,17 +92,6 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
-
-# ---------- HOME ----------
-if menu == "App":
-    st.markdown("""
-    <div class="banner-wrapper">
-        <div class="banner-headline">
-            Mica Portfolio
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-# ------------------ HERO ------------------
 st.markdown("""
 <div class="banner-wrapper">
     <div class="banner-headline">
