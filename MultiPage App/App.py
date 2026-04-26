@@ -110,7 +110,7 @@ Feel free to explore my portfolio and see my work.
 # ---------- SIDEBAR ----------
 menu = st.sidebar.radio(
     "📌 Navigation",
-    ["Home", "About Me", "Projects", "Skills", "Contact"]
+    ["app", "Home", "About Me", "Projects", "Skills", "Contact"]
 )
 
 # ---------- ROUTER ----------
