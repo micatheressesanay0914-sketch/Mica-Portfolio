@@ -1,33 +1,16 @@
 import streamlit as st
 
-    page_title="Mica Portfolio",
-    page_icon="💼",
-    layout="wide"
-# ---------- SIDEBAR ----------
-menu = st.sidebar.radio(
-    "📌 Navigation",
-    ["Home", "About Me", "Projects", "Skills", "Contact"]
-)
-
-# ---------- ROUTING ----------
-if menu == "Home":
-    import home
-
-elif menu == "About Me":
-    import about_me
-
-elif menu == "Projects":
-    import project
-
-elif menu == "Skills":
-    import skills
-
-elif menu == "Contact":
-    import contact
+# ---------- PAGE CONFIG (MUST BE FIRST) ----------
 st.set_page_config(
     page_title="Mica Portfolio",
     page_icon="💼",
     layout="wide"
+)
+
+# ---------- SIDEBAR ----------
+menu = st.sidebar.radio(
+    "📌 Navigation",
+    ["Home", "About Me", "Projects", "Skills", "Contact"]
 )
 
 # ------------------ CSS ------------------
@@ -87,12 +70,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------ SIDEBAR ------------------
-menu = st.sidebar.radio(
-    "Navigation",
-    ["Home", "About", "Projects", "Skills", "Contact"]
-)
-
 # ------------------ HOME ------------------
 if menu == "Home":
     st.markdown("""
@@ -114,7 +91,7 @@ if menu == "Home":
     """, unsafe_allow_html=True)
 
 # ------------------ ABOUT ------------------
-elif menu == "About":
+elif menu == "About Me":
     st.title("About Me")
     st.write("""
     I am a Computer Science student focused on software development, UI design, and web applications.
