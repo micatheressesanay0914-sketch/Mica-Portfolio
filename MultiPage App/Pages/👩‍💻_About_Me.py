@@ -1,11 +1,9 @@
 import streamlit as st
 import base64
 
-st.set_page_config(
     page_title="About Me - Mica",
     page_icon="👤",
     layout="wide"
-)
 
 # ---------- IMAGE TO BASE64 ----------
 def img_to_base64(path):
