@@ -7,35 +7,46 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ---------------- GITHUB FORK RIBBON (DEPLOY SAFE) ----------------
+st.markdown("""
+<a href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank">
+<div style="
+position: fixed;
+top: 0;
+right: 0;
+width: 150px;
+height: 150px;
+z-index: 9999;
+overflow: hidden;
+pointer-events: auto;
+">
+
+<div style="
+position: absolute;
+top: 25px;
+right: -50px;
+transform: rotate(45deg);
+background: linear-gradient(135deg, #ff4d6d, #ffb199);
+color: white;
+padding: 10px 70px;
+font-weight: bold;
+font-size: 13px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+">
+Fork on GitHub
+</div>
+
+</div>
+</a>
+""", unsafe_allow_html=True)
+
 # ---------------- SIDEBAR NAVIGATION ----------------
-st.sidebar.title("📌 Navigation")
+st.sidebar.title("📂 Navigation")
 
 page = st.sidebar.radio(
     "Go to:",
     ["Home", "About", "Skills", "Projects", "Contact"]
 )
-
-# ---------------- GITHUB FORK BUTTON ----------------
-st.markdown("""
-<a href="https://github.com/your-repo-link" target="_blank">
-<button style="
-position: fixed;
-top: 15px;
-right: 15px;
-padding: 10px 15px;
-background: linear-gradient(135deg, #ff4d6d, #ffb199);
-color: white;
-border: none;
-border-radius: 12px;
-font-weight: bold;
-cursor: pointer;
-z-index: 9999;
-box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-">
-⭐ Fork on GitHub
-</button>
-</a>
-""", unsafe_allow_html=True)
 
 # ---------------- STYLE ----------------
 st.markdown("""
@@ -102,6 +113,7 @@ st.markdown("""
     font-size: 18px;
     line-height: 1.8;
     margin-top: 40px;
+    animation: fadeIn 2s ease;
 }
 
 .highlight {
@@ -141,13 +153,13 @@ if page == "Home":
     """, unsafe_allow_html=True)
 
 elif page == "About":
-    st.title("👤 About Me Page")
+    st.title("👤 About Me")
 
 elif page == "Skills":
-    st.title("🧠 Skills Page")
+    st.title("🧠 Skills")
 
 elif page == "Projects":
-    st.title("💻 Projects Page")
+    st.title("💻 Projects")
 
 elif page == "Contact":
-    st.title("📞 Contact Page")
+    st.title("📞 Contact")
