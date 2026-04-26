@@ -7,61 +7,52 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------- FIXED FORK RIBBON ----------------
+# ---------------- FIXED FORK RIBBON (DEPLOY SAFE) ----------------
 st.markdown("""
 <style>
 
-/* FORCE ROOT LAYER (IMPORTANT FIX) */
-html, body, [data-testid="stAppViewContainer"] {
+/* Prevent Streamlit clipping */
+[data-testid="stAppViewContainer"] {
+    position: relative;
     overflow: visible !important;
 }
 
-/* RIBBON */
+/* FORK RIBBON */
 .fork-ribbon {
     position: fixed;
     top: 20px;
-    right: -60px;
+    right: 0px;
+
     z-index: 999999999 !important;
+
     transform: rotate(45deg);
+    transform-origin: top right;
+
     background: linear-gradient(135deg, #ff4d6d, #ffb199);
     color: white;
-    padding: 10px 70px;
+
+    padding: 10px 80px;
     font-size: 12px;
     font-weight: bold;
+
     text-decoration: none;
+
     box-shadow: 0 10px 25px rgba(0,0,0,0.6);
     border-radius: 6px;
-    pointer-events: auto;
+
+    transition: 0.3s ease;
 }
 
 .fork-ribbon:hover {
     transform: rotate(45deg) scale(1.08);
-    transition: 0.3s ease;
 }
 
-</style>
+/* ALLOW OVERFLOW */
+html, body {
+    overflow: visible !important;
+}
 
-<a class="fork-ribbon"
-   href="https://github.com/YOUR-USERNAME/YOUR-REPO"
-   target="_blank">
-   Fork on GitHub
-</a>
-""", unsafe_allow_html=True)
-
-# ---------------- SIDEBAR ----------------
-st.sidebar.title("📂 Navigation")
-
-page = st.sidebar.radio(
-    "Go to:",
-    ["Home", "About", "Skills", "Projects", "Contact"]
-)
-
-# ---------------- STYLE ----------------
-st.markdown("""
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap');
-
+/* BACKGROUND */
 .stApp {
     background: linear-gradient(-45deg, #141e30, #243b55, #1f1c2c, #2c3e50);
     background-size: 400% 400%;
@@ -75,6 +66,7 @@ st.markdown("""
     100% {background-position: 0% 50%;}
 }
 
+/* HERO */
 .banner-wrapper {
     width: 90%;
     max-width: 900px;
@@ -109,6 +101,7 @@ st.markdown("""
     font-weight: bold;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .banner-headline {
         font-size: 45px;
@@ -116,7 +109,21 @@ st.markdown("""
 }
 
 </style>
+
+<a class="fork-ribbon"
+   href="https://github.com/YOUR-USERNAME/YOUR-REPO"
+   target="_blank">
+   Fork on GitHub
+</a>
 """, unsafe_allow_html=True)
+
+# ---------------- SIDEBAR ----------------
+st.sidebar.title("📂 Navigation")
+
+page = st.sidebar.radio(
+    "Go to:",
+    ["Home", "About", "Skills", "Projects", "Contact"]
+)
 
 # ---------------- PAGES ----------------
 if page == "Home":
