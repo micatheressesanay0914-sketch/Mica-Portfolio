@@ -1,9 +1,10 @@
 import streamlit as st
-
 st.set_page_config(
     page_title="Mica Portfolio",
     page_icon="💼",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 )
 
 st.markdown("""
