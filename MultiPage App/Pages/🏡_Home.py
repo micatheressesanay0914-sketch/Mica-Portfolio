@@ -2,10 +2,17 @@ import streamlit as st
 import base64
 import os
 
+
 # ---------- IMAGE TO BASE64 ----------
 def get_base64_image(image_path):
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
+
+# ✅ FIXED PATH (WORKS ON CLOUD + LOCAL)
+BASE_DIR = os.path.dirname(__file__)
+img_path = os.path.join(BASE_DIR, "me", "Image.jpg")
+
+img_base64 = get_base64_image(img_path)
 
 # ---------- FIX ONLY: OS PATH ----------
 img_path = os.path.join("Pages", "me", "Image.jpg")
