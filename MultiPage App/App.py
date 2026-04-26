@@ -11,6 +11,11 @@ st.markdown("""
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap');
 
+/* FORCE FULL HEIGHT BACKGROUND */
+html, body, .stApp {
+    height: 100%;
+}
+
 /* BACKGROUND */
 .stApp {
     background: linear-gradient(-45deg, #141e30, #243b55, #1f1c2c, #2c3e50);
@@ -18,6 +23,13 @@ st.markdown("""
     animation: bgMove 18s ease infinite;
 }
 
+/* FIX DEFAULT PADDING */
+.block-container {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+/* BACKGROUND ANIMATION */
 @keyframes bgMove {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
@@ -28,7 +40,7 @@ st.markdown("""
 .banner-wrapper {
     width: 90%;
     max-width: 900px;
-    margin: 70px auto;
+    margin: 120px auto;
     padding: 60px 30px;
     border-radius: 25px;
     text-align: center;
