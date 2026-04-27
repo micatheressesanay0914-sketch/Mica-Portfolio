@@ -225,10 +225,6 @@ st.markdown(f"""
     </div>
 """, unsafe_allow_html=True)
 
-
 with st.expander("🔍 View Certificate 3"):
     st.image(cert3_path, use_container_width=True)
-
-        <div class="cert-text">Certificate 3</div>
-    </div>
     
