@@ -18,9 +18,11 @@ BASE_DIR = os.path.dirname(__file__)
 
 cert1_path = os.path.join(BASE_DIR, "me", "cert1.jpg")
 cert2_path = os.path.join(BASE_DIR, "me", "cert2.jpg")
+cert3_path = os.path.join(BASE_DIR, "me", "cert3.png")
 
 cert1 = img_to_base64(cert1_path)
 cert2 = img_to_base64(cert2_path)
+cert3 = img_to_base64(cert3_path)
 
 # ---------- STYLE ----------
 st.markdown("""
@@ -213,3 +215,20 @@ st.markdown("<div style='height: 40px;'></div>", unsafe_allow_html=True)
 
 with st.expander("🔍 View Certificate 2"):
     st.image(cert2_path, use_container_width=True)
+    
+st.markdown(f"""
+<div class="cert-grid">
+    <div class="cert-card">
+        <img src="data:image/;base64,{cert3}">
+        <div class="cert-text">Simplilearn Certificate</div>
+        </div>
+    </div>
+""", unsafe_allow_html=True)
+
+
+with st.expander("🔍 View Certificate 3"):
+    st.image(cert3_path, use_container_width=True)
+
+        <div class="cert-text">Certificate 3</div>
+    </div>
+    
